@@ -1,0 +1,17 @@
+.timer-button-row {
+  justify-content: space-between;
+  width: 400px;
+}
+.start-button {
+  background-color: green;
+}
+.stop-button {
+  background-color: red;
+}
+.reset-button {
+  background-color: blue;
+}
+.clock {
+  font-size: 50px;
+  margin: 20px;
+}
