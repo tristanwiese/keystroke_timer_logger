@@ -1,0 +1,10 @@
+.card-main {
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-block: 10px;
+  background-color: aqua;
+  border-radius: 20px;
+}
