@@ -26,7 +26,7 @@ const TimerView:React.FC<TimerViewType> = ({updateEvents}) => {
         if (!isNaN(parseInt(e.key))){
             let log:Log = {
                 idx: e.key,
-                start: count == 0 ? count : round(count),
+                start: round(count),
                 end: null
             }
             if(events.length > 0){
@@ -97,14 +97,18 @@ const TimerView:React.FC<TimerViewType> = ({updateEvents}) => {
         settimerState(true);
     }
     function stateReset(){
-        events[events.length-1].end = round(count);
-        updateEvents(events)
+        if (events.length > 0){
+            events[events.length-1].end = round(count);
+            updateEvents(events)
+        }
         settimerState(false);
         setCount(0);
     }
     function stateStop(){
-        events[events.length-1].end = round(count);
-        updateEvents(events);
+        if (events.length > 0){
+            events[events.length-1].end = round(count);
+            updateEvents(events);
+        }
         settimerState(false);
     }
 
