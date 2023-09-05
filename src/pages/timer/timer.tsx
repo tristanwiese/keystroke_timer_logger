@@ -2,43 +2,44 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import './timer.css'
 
-export interface Log{
-    idx:String,
-    start:number,
-    end:number|null
+export interface Log {
+    idx: string,
+    start: number,
+    end: number | null
 }
 
-interface TimerViewType{
-    updateEvents: (events: Array<Log>)=>void;
+interface TimerViewType {
+    updateEvents: (events: Array<Log>) => void;
+    updateState: (state: boolean) => void;
 }
 
 
-const TimerView:React.FC<TimerViewType> = ({updateEvents}) => {
+const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
     const [count, setCount] = useState<number>(0.0);
-    const [timerState, settimerState] = useState(false);
+    const [timerState, settimerState] = useState<boolean>(false);
     const [events, setevents] = useState<Array<Log>>([])
 
-    function round(num: number):number{
+    function round(num: number): number {
         return Math.round(num * 10) / 10
     }
 
     const handleKeyEvent = (e: KeyboardEvent) => {
-        if (!isNaN(parseInt(e.key))){
-            let log:Log = {
+        if (!isNaN(parseInt(e.key))) {
+            let log: Log = {
                 idx: e.key,
                 start: round(count),
                 end: null
             }
-            if(events.length > 0){
-                events[events.length-1].end = round(count);
-                setevents((prevEvents)=>[...prevEvents, log])
+            if (events.length > 0) {
+                events[events.length - 1].end = round(count);
+                setevents((prevEvents) => [...prevEvents, log])
                 updateEvents([...events, log]);
 
-            }else{
+            } else {
                 setevents([log]);
                 updateEvents([log]);
             }
-            console.log(events);        
+            console.log(events);
         }
         // switch (e.key) {
         //     case '1':
@@ -70,18 +71,19 @@ const TimerView:React.FC<TimerViewType> = ({updateEvents}) => {
         //         break;
         // }
     }
-    
+
     useEffect(() => {
-        let interval:any = null;
-        if(timerState){
-           interval =  setInterval(()=>{
-                setCount((count)=> count + 0.1);
+        updateState(timerState);
+        let interval: any = null;
+        if (timerState) {
+            interval = setInterval(() => {
+                setCount((count) => count + 0.1);
             }, 100)
-        }else{
+        } else {
             clearInterval(interval);
         }
 
-        return ()=>{
+        return () => {
             clearInterval(interval);
         }
     }, [timerState]);
@@ -93,42 +95,42 @@ const TimerView:React.FC<TimerViewType> = ({updateEvents}) => {
 
     }, [handleKeyEvent])
 
-    function stateStart(){
+    function stateStart() {
         settimerState(true);
     }
-    function stateReset(){
-        if (events.length > 0){
-            events[events.length-1].end = round(count);
+    function stateReset() {
+        if (events.length > 0) {
+            events[events.length - 1].end = round(count);
             updateEvents(events)
         }
         settimerState(false);
         setCount(0);
     }
-    function stateStop(){
-        if (events.length > 0){
-            events[events.length-1].end = round(count);
+    function stateStop() {
+        if (events.length > 0) {
+            events[events.length - 1].end = round(count);
             updateEvents(events);
         }
         settimerState(false);
     }
 
 
-  return (
-    <div className='timer-main col center'>
-        <div className='clock'>
-            {count === 0 ? 'Timer' : Math.round(count * 10) / 10}
+    return (
+        <div className='timer-main col center'>
+            <div className='clock'>
+                {count === 0 ? 'Timer' : Math.round(count * 10) / 10}
+            </div>
+            <div className='row timer-button-row'>
+                <div className='button start-button center prevent-select' onClick={(e) => { stateStart() }}>Start</div>
+                <div className='button stop-button center prevent-select' onClick={(e) => { stateStop() }}>Stop</div>
+                <div className='button reset-button center prevent-select' onClick={(e) => { stateReset() }}>Reset</div>
+            </div>
         </div>
-        <div className='row timer-button-row'>
-            <div className='button start-button center prevent-select' onClick={(e)=>{stateStart()}}>Start</div>
-            <div className='button stop-button center prevent-select' onClick={(e)=>{stateStop()}}>Stop</div>
-            <div className='button reset-button center prevent-select' onClick={(e)=>{stateReset()}}>Reset</div>
-        </div>
-    </div>
-    
 
 
 
-  )
+
+    )
 }
 
 export default TimerView

@@ -7,7 +7,7 @@ import { Log } from '../pages/timer/timer';
 const LogCard: React.FC<Log> = ({ idx, start, end }) => {
 
   function enter(e: KeyboardEvent<HTMLInputElement>) {
-    e.code == 'Enter' && editComment();
+    e.code === 'Enter' && editComment();
   }
   function editComment() {
     setshowInput(!showInput);
@@ -30,7 +30,7 @@ const LogCard: React.FC<Log> = ({ idx, start, end }) => {
         </span>
       </div>
       {
-        (comment.length != 0 || showInput) && <div className='comment'>{
+        (comment.length !== 0 || showInput) && <div className='comment'>{
           showInput ? <input type="text" value={comment} placeholder='Comment' onChange={inputComment} onKeyDown={enter} /> : <div>Comment: {comment}</div>
         }</div>
       }

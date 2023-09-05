@@ -1,7 +1,22 @@
 .app-main {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 .app-component {
   margin-bottom: 30px;
+}
+.report-button {
+  background-color: palegreen;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px black;
+  cursor: pointer;
+}
+.download-icon {
+  font-size: 50px;
+  cursor: pointer;
+  color: white;
+  margin-left: 20px;
 }

@@ -3,7 +3,6 @@
   width: 400px;
 }
 .timer-main {
-  height: 60vh;
   justify-content: end;
 }
 .reset-button,
@@ -11,6 +10,7 @@
 .stop-button {
   color: white;
   font-size: 20px;
+  cursor: pointer;
 }
 .start-button {
   background-color: green;
