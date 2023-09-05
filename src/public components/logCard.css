@@ -1,14 +1,20 @@
 .card-main {
   width: 500px;
   padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   margin-block: 10px;
   background-color: aqua;
   border-radius: 20px;
 }
 .card-text {
-  /* color: white; */
   font-size: 25px;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.comment-icon {
+  margin-left: 20px;
+  font-size: 35px;
+  cursor: pointer;
 }

@@ -7,6 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(5, 5, 80);
 }
+input {
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.603);
+  height: 30px;
+  font-family: "Consolas";
+  /* border: solid black 2px; */
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -40,4 +49,10 @@ code {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
 }
