@@ -6,6 +6,7 @@ export interface Log {
     idx: string,
     start: number,
     end: number | null
+    comment: string | null
 }
 
 interface TimerViewType {
@@ -28,7 +29,8 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
             let log: Log = {
                 idx: e.key,
                 start: round(count),
-                end: null
+                end: null,
+                comment: null
             }
             if (events.length > 0) {
                 events[events.length - 1].end = round(count);
@@ -41,35 +43,6 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
             }
             console.log(events);
         }
-        // switch (e.key) {
-        //     case '1':
-        //         console.log(e.key + ":" + count);
-        //         break;
-        //     case '2':
-        //         console.log(e.key);
-        //         break;
-        //     case '3':
-        //         console.log(e.key);
-        //         break;
-        //     case '4':
-        //         console.log(e.key);
-        //         break;
-        //     case '5':
-        //         console.log(e.key);
-        //         break;
-        //     case '6':
-        //         console.log(e.key);
-        //         break;
-        //     case '7':
-        //         console.log(e.key);
-        //         break;
-        //     case '8':
-        //         console.log(e.key);
-        //         break;
-        //     case '9':
-        //         console.log(e.key);
-        //         break;
-        // }
     }
 
     useEffect(() => {
@@ -99,12 +72,14 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
         settimerState(true);
     }
     function stateReset() {
-        if (events.length > 0) {
-            events[events.length - 1].end = round(count);
-            updateEvents(events)
-        }
+        // if (events.length > 0) {
+        //     events[events.length - 1].end = round(count);
+        //     updateEvents(events)
+        // }
         settimerState(false);
         setCount(0);
+        setevents([])
+        updateEvents([]);
     }
     function stateStop() {
         if (events.length > 0) {

@@ -29,6 +29,10 @@ const App: React.FC<AppType> = ({ title }) => {
   function getReport() {
     setreport(generateReport(events));
   }
+  function addCommentToEvent(comment: string, index: number) {
+    events[index].comment = comment;
+    setevents(events)
+  }
 
   return (
     <div className="center app-main">
@@ -36,7 +40,7 @@ const App: React.FC<AppType> = ({ title }) => {
         <TimerView updateEvents={updateEvents} updateState={updateState} />
       </div>
       <div className="app-component">
-        <CardContainer events={events} />
+        <CardContainer events={events} addCommentToEvent={addCommentToEvent} />
       </div>
       <div className="row center">
         {
