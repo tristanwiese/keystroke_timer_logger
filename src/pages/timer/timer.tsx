@@ -12,10 +12,11 @@ export interface Log {
 interface TimerViewType {
     updateEvents: (events: Array<Log>) => void;
     updateState: (state: boolean) => void;
+    updateTimer: (timer: number) => void;
 }
 
 
-const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
+const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState, updateTimer }) => {
     const [count, setCount] = useState<number>(0.0);
     const [timerState, settimerState] = useState<boolean>(false);
     const [events, setevents] = useState<Array<Log>>([])
@@ -87,6 +88,7 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState }) => {
             updateEvents(events);
         }
         settimerState(false);
+        updateTimer(Math.round(count * 10) / 10);
     }
 
 

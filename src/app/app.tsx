@@ -18,6 +18,12 @@ const App: React.FC<AppType> = ({ title }) => {
   const [events, setevents] = useState<Array<Log>>([])
   const [showReport, setshowReport] = useState<boolean>(false);
   const [report, setreport] = useState<string>('');
+  const [timer, settimer] = useState<number>(0);
+
+  function updateTimer(timer: number) {
+    console.log(timer);
+    settimer(timer);
+  }
 
   function updateEvents(events: Log[]) {
     console.log('App Events: ' + events);
@@ -27,7 +33,9 @@ const App: React.FC<AppType> = ({ title }) => {
     setshowReport(state);
   }
   function getReport() {
-    setreport(generateReport(events));
+    let currentReport = generateReport(events, timer);
+    console.log(currentReport);
+    setreport(currentReport);
   }
   function addCommentToEvent(comment: string, index: number) {
     events[index].comment = comment;
@@ -37,7 +45,7 @@ const App: React.FC<AppType> = ({ title }) => {
   return (
     <div className="center app-main">
       <div className="app-component">
-        <TimerView updateEvents={updateEvents} updateState={updateState} />
+        <TimerView updateEvents={updateEvents} updateState={updateState} updateTimer={updateTimer} />
       </div>
       <div className="app-component">
         <CardContainer events={events} addCommentToEvent={addCommentToEvent} />

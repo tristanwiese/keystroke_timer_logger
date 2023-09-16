@@ -1,0 +1,13 @@
+Detailed Report:
+
+Participants: {totalParticipants}
+Duration: {totalTime}
+
+//forEach person
+Person {id} logs:
+Speaking slots: {totalTimesSpoke}
+Duration:{totalSpeakingDuration}
+//forEach log
+Log 1:
+Start: {startTime}
+End: {endTime}
