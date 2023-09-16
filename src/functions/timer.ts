@@ -13,7 +13,6 @@ export default class Timer{
 
     start(){
         if(!this.timerState){
-            console.log('start');
             this.timerState = true;
             this.updateTime()
         }
@@ -35,7 +34,6 @@ export default class Timer{
     }
 
     stop(){
-        console.log('stop');
         this.timerState = false;
     }
 }

@@ -26,7 +26,7 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState, updateT
     }
 
     const handleKeyEvent = (e: KeyboardEvent) => {
-        if (!isNaN(parseInt(e.key))) {
+        if (!isNaN(parseInt(e.key)) && timerState) {
             let log: Log = {
                 idx: e.key,
                 start: round(count),
@@ -42,7 +42,6 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState, updateT
                 setevents([log]);
                 updateEvents([log]);
             }
-            console.log(events);
         }
     }
 

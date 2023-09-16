@@ -21,12 +21,10 @@ const App: React.FC<AppType> = ({ title }) => {
   const [timer, settimer] = useState<number>(0);
 
   function updateTimer(timer: number) {
-    console.log(timer);
     settimer(timer);
   }
 
   function updateEvents(events: Log[]) {
-    console.log('App Events: ' + events);
     setevents(events);
   }
   function updateState(state: boolean) {
@@ -34,7 +32,6 @@ const App: React.FC<AppType> = ({ title }) => {
   }
   function getReport() {
     let currentReport = generateReport(events, timer);
-    console.log(currentReport);
     setreport(currentReport);
   }
   function addCommentToEvent(comment: string, index: number) {

@@ -31,7 +31,6 @@ function getStructure(events:Log[]):{[key: string]:Array<Event>}{
 }
 
 function getString(data:{[key: string]:Array<Event>}, time:number):string{
-    // console.log(data);
     let header = 
     `Detailed Report:\n\n\tParticipants: ${Object.keys(data).length}\n\tDuration: ${time}\n\n`;
 
