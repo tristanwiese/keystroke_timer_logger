@@ -14,15 +14,15 @@
   cursor: pointer;
 }
 .start-button {
-  background-color: green;
+  background-color: rgb(95, 150, 95);
   /* color: green; */
 }
 .stop-button {
-  background-color: red;
+  background-color: rgb(247, 126, 126);
   /* color: red; */
 }
 .reset-button {
-  background-color: blue;
+  background-color: rgb(108, 108, 252);
   /* color: blue; */
 }
 .clock {

@@ -7,6 +7,7 @@ import TimerView from "../pages/timer/timer";
 import CardContainer from "./cardContainer";
 import { Log } from "../pages/timer/timer";
 import generateReport from "../functions/generateReport";
+import Report from "../public components/report/report";
 
 interface AppType {
   title: string
@@ -54,6 +55,9 @@ const App: React.FC<AppType> = ({ title }) => {
         {
           (report.length > 0) && <a href={"data:text/plain;charset=utf-8," + encodeURIComponent(report)} download={"report.txt"}><span className="material-symbols-outlined download-icon">download</span></a>
         }
+      </div>
+      <div className="show-report center">
+        {(report.length > 0) && <Report report={report} />}
       </div>
     </div>
   )

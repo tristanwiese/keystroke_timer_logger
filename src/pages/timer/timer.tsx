@@ -72,10 +72,6 @@ const TimerView: React.FC<TimerViewType> = ({ updateEvents, updateState, updateT
         settimerState(true);
     }
     function stateReset() {
-        // if (events.length > 0) {
-        //     events[events.length - 1].end = round(count);
-        //     updateEvents(events)
-        // }
         settimerState(false);
         setCount(0);
         setevents([])

@@ -7,7 +7,7 @@
   margin-bottom: 30px;
 }
 .report-button {
-  background-color: #1a7efb;
+  background-color: #579df4;
   color: white;
   padding: 20px;
   font-size: 30px;
@@ -22,7 +22,7 @@
   border-radius: 30px;
   height: 60px;
   width: 60px;
-  box-shadow: 0px 5px 10px black;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.285);
   font-size: 50px;
   cursor: pointer;
   color: black;
