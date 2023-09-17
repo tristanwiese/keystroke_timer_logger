@@ -26,6 +26,9 @@ const App: React.FC<AppType> = ({ title }) => {
   }
 
   function updateEvents(events: Log[]) {
+    if (events.length === 0) {
+      setreport('');
+    }
     setevents(events);
   }
   function updateState(state: boolean) {
